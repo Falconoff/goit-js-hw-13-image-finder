@@ -5,4 +5,36 @@ body {
 
 .photo-card {
   outline: 2px solid tomato;
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-right: 30px;
+  margin-bottom: 30px;
+}
+
+.gallery {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.gallery-item {
+  max-width: 600px;
+}
+
+.photo-card img {
+  width: 100%;
+  height: auto;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-around;
+  color: blue;
+}
+
+.stats-item {
+  display: flex;
+  align-items: center;
 }

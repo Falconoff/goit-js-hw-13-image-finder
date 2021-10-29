@@ -13,20 +13,16 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
   </head>
   <body>
-    <form class="search-form" id="search-form">
-      <input type="text" name="query" autocomplete="off" placeholder="Search images..." />
-    </form>
+    <main>
+      <form class="search-form" id="search-form">
+        <input type="text" name="query" autocomplete="off" placeholder="Search images..." />
+      </form>
 
-    <ul class="gallery">
-      <!-- Список <li> с карточками изображений -->
-    </ul>
+      <ul class="gallery"></ul>
 
-    <button type="button" data-action="load-more">Load more</button>
+      <button type="button" data-action="load-more">Load more</button>
+    </main>
 
-    <!-- Так добавляются фрагменты в главные HTML-файлы страниц. -->
-    <!-- <include src="./partials/example.html"></include> -->
-
-    <!-- Скрипт идёт последним в разметке. В нём уже подключен главный SASS-файл. -->
     <script src="./index.js"></script>
   </body>
 </html>

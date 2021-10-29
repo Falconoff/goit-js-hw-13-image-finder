@@ -9,9 +9,12 @@ export default class PixabayApiService {
     const API_KEY = '24083416-1e00017d670d2bdb130fa2702';
     const URL = 'https://pixabay.com/api/?image_type=photo&orientation=horizontal&';
 
-    fetch(`${URL}q=${this.searchQuery}&page=${this.page}&per_page=12&key=${API_KEY}`)
+    return fetch(`${URL}q=${this.searchQuery}&page=${this.page}&per_page=12&key=${API_KEY}`)
       .then(r => r.json())
-      .then(this.incrementPage());
+      .then(data => {
+        this.incrementPage();
+        return data.hits;
+      });
   }
   get query() {
     return this.searchQuery;

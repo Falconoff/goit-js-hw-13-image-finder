@@ -1,5 +1,6 @@
 import debounce from 'lodash.debounce';
 import PixabayApiService from './pixabayApiService';
+import cardTemplate from '../templates/cardTmpl.hbs';
 
 const refs = {
   searchForm: document.getElementById('search-form'),
@@ -22,12 +23,30 @@ function onSearch(e) {
   // fetch(`${URL}q=${searchQuery}&page=1&per_page=12&key=${API_KEY}`)
   //   .then(r => r.json())
   //   .then(console.log);
+
   pixabayApiService.query = e.target.value;
+
+  if (pixabayApiService.query === '') {
+    clearGallery();
+    return alert('Bad query!');
+  }
+
   pixabayApiService.resetPage();
-  pixabayApiService.fetchImages();
+  pixabayApiService.fetchImages().then(images => {
+    clearGallery();
+    appendImgCards(images);
+  });
 }
 
 function onLoadMore() {
   console.log('click on loadMoreBtn');
-  pixabayApiService.fetchImages();
+  pixabayApiService.fetchImages().then(appendImgCards);
+}
+
+function appendImgCards(imgs) {
+  refs.gallery.insertAdjacentHTML('beforeend', cardTemplate(imgs));
+}
+
+function clearGallery() {
+  refs.gallery.innerHTML = '';
 }

@@ -13,16 +13,31 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
   </head>
   <body>
-    <main>
+    <header>
       <form class="search-form" id="search-form">
-        <input type="text" name="query" autocomplete="off" placeholder="Search images..." />
+        <input class="search-input" type="text" name="query" autocomplete="off" placeholder="Search images..." />
       </form>
-
+      <button id="to-down">Go down 
+        <span class="material-icons">
+          arrow_downward
+        </span>
+      </button>
+    </header>
+    <main>
+      
       <ul class="gallery"></ul>
 
-      <button type="button" data-action="load-more">Load more</button>
-    </main>
+      
 
+    </main>
+    <footer>
+      <button type="button" data-action="load-more" disabled>Load more</button>
+      <button id="to-up">Go up
+        <span class="material-icons">
+          arrow_upward
+        </span>
+      </button>
+    </footer>
     <script src="./index.js"></script>
   </body>
 </html>

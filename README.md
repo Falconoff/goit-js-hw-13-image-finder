@@ -8,3 +8,4 @@ Used:
 2. https://handlebarsjs.com/installation/
 3. https://www.npmjs.com/package/lodash.debounce
 4. https://pixabay.com/api/docs/
+5. https://github.com/electerious/basicLightbox

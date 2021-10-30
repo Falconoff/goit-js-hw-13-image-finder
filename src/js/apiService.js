@@ -8,8 +8,6 @@ export default class PixabayApiService {
   }
 
   fetchImages() {
-    // console.log(this);
-
     return fetch(
       `${URL}/?image_type=photo&orientation=horizontal&q=${this.searchQuery}&page=${this.page}&per_page=12&key=${API_KEY}`,
     )

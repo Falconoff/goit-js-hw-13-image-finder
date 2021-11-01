@@ -101,3 +101,39 @@ function makeLoadMoreBtnDisabled() {
 function makeLoadMoreBtnEnabled() {
   refs.loadMoreBtn.removeAttribute('disabled');
 }
+
+// ================== basicLightbox ======================================
+import * as basicLightbox from 'basiclightbox';
+const testBtn = document.querySelector('.test-show-img');
+
+testBtn.addEventListener('click', () => {
+  console.log('click testBtn');
+  instance.show();
+  // setTimeout(() => instance.close(), 3000);
+});
+
+const instance = basicLightbox.create(
+  `
+    <div class="modal">
+      <img width="1200" height="auto" src="https://pixabay.com/get/gb593b614feeb594ea64494ffec5e849972aa3fceb042ee5bfb5a00316768e78a7823bfca0b47a495687eaedd8cc37e00ac8a84562511021ccf2ae5e6c70aabc9_1280.jpg">
+    </div>
+  `,
+);
+
+// =========== click on card ==================
+refs.gallery.addEventListener('click', onShowBigImg);
+
+function onShowBigImg(evt) {
+  evt.preventDefault();
+  // console.log('currenttarget:', evt.currentTarget);
+  // console.log('target:', evt.target);
+
+  if (evt.target.nodeName !== 'IMG') {
+    console.log("it's not an img!");
+    return;
+  }
+  console.log("it's an img !!!!)))");
+  let link = evt.target.dataset.link;
+  console.log('target link:', link);
+  basicLightbox.create(`<img width="1200" height="auto" src="${link}">`).show();
+}

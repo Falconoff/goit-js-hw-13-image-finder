@@ -35,15 +35,14 @@ refs.loadMoreBtn.addEventListener('click', onFetchImages);
 
 function onSearch(e) {
   pixabayApiService.query = e.target.value;
+  makeLoadMoreBtnDisabled();
 
   if (pixabayApiService.query === '') {
     clearGallery();
-    makeLoadMoreBtnDisabled();
     showErrorMessage('Please, enter your request');
     return;
   }
 
-  makeLoadMoreBtnDisabled();
   clearGallery();
   pixabayApiService.resetPage();
   onFetchImages();
@@ -116,5 +115,5 @@ function onShowBigImg(evt) {
   }
 
   let link = evt.target.dataset.link;
-  basicLightbox.create(`<img class="big-img" src="${link}">`).show();
+  basicLightbox.create(`<img class="big-img" src="${link}" alt="${tags}">`).show();
 }
